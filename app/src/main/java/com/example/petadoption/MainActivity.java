@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Account created successfully
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            loginStatusTextView.setText("Account created successfully!");
+                            loginStatusTextView.setText("Account is created successfully!");
                         } else {
                             // If creating account fails
                             loginStatusTextView.setText("Account creation failed: " + task.getException().getMessage());
