@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">PetAdoption</string>
+    <string name="app_name">PetPal</string>
+    <string name="get_started">Get Started</string>
 </resources>

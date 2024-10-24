@@ -57,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Method to handle the button click
+    public void onGetStartedClick(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
     private void loginUser() {
         String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
