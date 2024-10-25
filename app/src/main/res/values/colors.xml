@@ -4,6 +4,6 @@
     <color name="buttonColor">#FF6200EE</color> <!-- Example button color -->
     <color name="linkColor">#FF6200EE</color> <!-- Example link color -->
     <color name="borderColor">#CCCCCC</color> <!-- Example border color -->
-    <color name="hintColor">#595959</color> <!-- Example input text color -->
+    <color name="hintColor">#A2A2A2</color> <!-- Example input text color -->
 
 </resources>
