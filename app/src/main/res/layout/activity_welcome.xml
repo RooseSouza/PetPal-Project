@@ -23,7 +23,7 @@
                 android:id="@+id/app_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/cat_footprint"
+                android:src="@drawable/cat_footprint_logo"
                 android:contentDescription="@string/app_name"
                 android:layout_marginEnd="8dp"/>
 
@@ -70,6 +70,7 @@
             android:layout_height="wrap_content"
             android:text="@string/get_started"
             android:textAllCaps="false"
+            android:backgroundTint="@color/buttonColor"
             android:background="@drawable/button_background"
             android:padding="16dp"
             android:onClick="onGetStartedClick"/>

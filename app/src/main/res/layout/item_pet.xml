@@ -1,0 +1,48 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:elevation="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <!-- Profile Picture -->
+        <ImageView
+            android:id="@+id/petPfp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/pfp1"
+            android:layout_marginEnd="10dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle" />
+
+        <!-- Pet Name -->
+        <TextView
+            android:id="@+id/petName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/petPfp"
+            android:layout_alignTop="@id/petPfp"
+            android:text="Pet Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+        <!-- Pet Image -->
+        <ImageView
+            android:id="@+id/petImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/petPfp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/pet1"
+            android:scaleType="centerCrop" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

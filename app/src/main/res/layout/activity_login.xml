@@ -31,7 +31,7 @@
                 android:id="@+id/app_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/cat_footprint"
+                android:src="@drawable/cat_footprint_logo"
                 android:contentDescription="@string/app_name"
                 android:layout_marginEnd="8dp"/>
 
@@ -66,7 +66,10 @@
                 android:id="@+id/email_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="john@gmail.com"
+                android:hint="Email"
+                android:textColorHint="@color/hintColor"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black"
                 android:inputType="textEmailAddress"
                 android:padding="8dp"/>
         </LinearLayout>
@@ -93,6 +96,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
+                android:textColorHint="@color/hintColor"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
                 android:inputType="textPassword"
                 android:padding="8dp"/>
         </LinearLayout>
@@ -110,10 +116,11 @@
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/buttonColor"
             android:background="@drawable/button_background"
             android:padding="16dp"
-            android:layout_marginBottom="16dp"/>
+            android:text="Login" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -137,7 +144,6 @@
                 android:text="Register"
                 android:textSize="16sp"
                 android:textColor="@color/linkColor"
-                android:textStyle="underline"
                 android:onClick="onRegisterClick"/>
         </LinearLayout>
     </LinearLayout>
