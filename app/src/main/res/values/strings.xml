@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">PetPal</string>
     <string name="get_started">Get Started</string>
+    <string-array name="role_array">
+        <item>Pet Lister</item>
+        <item>Pet Adopter</item>
+    </string-array>
 </resources>
