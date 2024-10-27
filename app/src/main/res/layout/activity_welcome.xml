@@ -72,7 +72,7 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:backgroundTint="@color/buttonColor"
-            android:padding="16dp"
+            android:padding="20dp"
             android:onClick="onGetStartedClick"/>
     </LinearLayout>
 </ScrollView>

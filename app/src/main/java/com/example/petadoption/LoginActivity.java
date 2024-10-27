@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<com.google.firebase.auth.AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, navigate to HomePageActivity
-                            startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();  // Avoid going back to the login screen
                         } else {
                             // If sign in fails, display a message to the user.
