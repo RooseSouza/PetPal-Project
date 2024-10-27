@@ -38,7 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/white">
 
         <ImageView
             android:layout_width="match_parent"
@@ -54,12 +55,13 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/cat_footprint" />
+                android:src="@drawable/cat_footprint_logo" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PetPal"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="24sp"
                 android:layout_marginStart="8dp" />
@@ -69,13 +71,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name"
+            android:textColor="@color/black"
             android:layout_marginTop="16dp" />
 
         <EditText
-        
+            android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="John"
+            android:hint="Name"
+            android:textColorHint="@color/hintColor"
             android:inputType="textPersonName"
             android:layout_marginTop="8dp" />
 
@@ -83,29 +87,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
+            android:textColor="@color/black"
             android:layout_marginTop="16dp" />
 
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="John@gmail.com"
+            android:textColorHint="@color/hintColor"
             android:inputType="textEmailAddress"
             android:hint="Email"
+            android:layout_marginTop="8dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/phoneEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/hintColor"
+            android:hint="Phone"
+            android:inputType="phone"
             android:layout_marginTop="8dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password"
+            android:textColor="@color/black"
             android:layout_marginTop="16dp" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="password"
             android:inputType="textPassword"
-            android:layout_marginTop="8dp" 
+            android:layout_marginTop="8dp"
+            android:textColorHint="@color/hintColor"
             android:id="@+id/passwordEditText"
             android:hint="Password"/>
 
@@ -113,12 +134,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Confirm password"
+            android:textColor="@color/black"
             android:layout_marginTop="16dp" />
 
+
         <EditText
+            android:id="@+id/confirmPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="confirm password"
+            android:textColorHint="@color/hintColor"
+            android:hint="Confirm Password"
             android:inputType="textPassword"
             android:layout_marginTop="8dp" />
 
@@ -126,39 +151,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Select Role"
+            android:textColor="@color/black"
             android:layout_marginTop="16dp" />
 
         <Spinner
+            android:id="@+id/roleSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:entries="@array/role_array" />
+            android:spinnerMode="dropdown"/>
 
         <Button
+            android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sign me up!"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/buttonColor"
             android:layout_marginTop="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Have an account?" />
+                android:text="Have an account?"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Login"
-                android:textStyle="underline"
                 android:layout_marginStart="8dp"
                 android:clickable="true"
                 android:focusable="true"
+                android:textColor="@color/buttonColor"
                 android:id="@+id/loginTextView" />
         </LinearLayout>
     </LinearLayout>

@@ -70,9 +70,9 @@
             android:layout_height="wrap_content"
             android:text="@string/get_started"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:backgroundTint="@color/buttonColor"
-            android:background="@drawable/button_background"
-            android:padding="16dp"
+            android:padding="20dp"
             android:onClick="onGetStartedClick"/>
     </LinearLayout>
 </ScrollView>
