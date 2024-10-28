@@ -1,25 +1,23 @@
 package com.example.petadoption;
 
 public class Pet {
-    private String name;
-    private int pfp;
-    private int petImage;
+    private String petName; // Change this to petName
+    private String location;
 
-    public Pet(String name, int pfp, int petImage) {
-        this.name = name;
-        this.pfp = pfp;
-        this.petImage = petImage;
+    // Empty constructor required for Firebase
+    public Pet() {}
+
+    public Pet(String petName, String location) { // Update constructor parameter
+        this.petName = petName; // Update assignment
+        this.location = location;
     }
 
-    public String getName() {
-        return name;
-    }
+    // Getters and Setters
+    public String getPetName() { return petName; } // Update getter method
+    public void setPetName(String petName) { this.petName = petName; } // Update setter method
 
-    public int getPfp() {
-        return pfp;
-    }
-
-    public int getPetImage() {
-        return petImage;
-    }
+    public String getLocation() { return location; }
+    public void setLocation(String location) { this.location = location; }
 }
+
+

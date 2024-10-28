@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="8dp"
+    android:layout_margin="8dp"
     android:background="@drawable/input_field_background"
     android:elevation="1dp"
     android:clipChildren="false"

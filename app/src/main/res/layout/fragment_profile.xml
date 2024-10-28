@@ -90,9 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center"
-                android:background="@drawable/input_field_background"
-                android:layout_marginTop="16dp">
+                android:gravity="center">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -152,43 +150,6 @@
                         android:textSize="16sp"
                         android:gravity="center_horizontal" />
                 </LinearLayout>
-            </LinearLayout>
-
-            <!-- Tab Section -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pets"
-                    android:textAlignment="center"
-                    android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:background="?attr/selectableItemBackground" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="20dp"
-                    android:background="#C0C0C0" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Adopted"
-                    android:textAlignment="center"
-                    android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:textColor="#8A8A8A"
-                    android:padding="8dp"
-                    android:background="?attr/selectableItemBackground" />
             </LinearLayout>
 
             <!-- Pet List Section -->

@@ -19,10 +19,10 @@ public class SplashActivity extends AppCompatActivity {
             // Check if the user is logged in
             if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                 // User is logged in, go to homepage
-                startActivity(new Intent(SplashActivity.this, WelcomeActivity.class));
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
             } else {
                 // User is not logged in, go to login page
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                startActivity(new Intent(SplashActivity.this, WelcomeActivity.class));
             }
             finish();
         }, 1000); // 1 second delay
