@@ -1,0 +1,128 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    tools:context=".EditProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Bar Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/cat_footprint_logo" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="PetPal"
+                android:textSize="24sp"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/userIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/user_icon"
+                android:background="@drawable/circle" />
+        </LinearLayout>
+
+        <!-- Edit Profile Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/input_field_background"
+            android:layout_marginTop="16dp">
+
+            <!-- Avatar Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/avatarImageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/user_icon"
+                    android:background="@drawable/circle"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/changeAvatarButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change Avatar"
+                    android:backgroundTint="#000000"
+                    android:textColor="#FFFFFF"
+                    android:elevation="2dp" />
+            </LinearLayout>
+
+            <!-- Name Section -->
+            <TextView
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Name" />
+            <EditText
+                android:id="@+id/nameEditText"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textColorHint="@color/hintColor"
+                android:background="@drawable/input_field_background"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="Enter name..." />
+
+            <!-- Address Section -->
+            <TextView
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Address" />
+            <EditText
+                android:id="@+id/addressEditText"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textColorHint="@color/hintColor"
+                android:background="@drawable/input_field_background"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="Enter address..." />
+        </LinearLayout>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Save"
+            android:backgroundTint="#000000"
+            android:textColor="#FFFFFF"
+            android:elevation="2dp" />
+    </LinearLayout>
+</ScrollView>
