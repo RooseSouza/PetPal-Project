@@ -36,7 +36,7 @@ public class ProfileFragment extends Fragment {
     private ImageView userIcon, userPfp;
     private TextView nameEditText, addressEditText, petCounter;
     private DatabaseReference userRef;
-    private Button addPetButton, editProfileButton;
+    private Button addPetButton, editProfileButton, requestsButton;
 
     private RecyclerView recyclerViewPets;
     private DatabaseReference petsRef;
@@ -57,6 +57,7 @@ public class ProfileFragment extends Fragment {
         editProfileButton = view.findViewById(R.id.btnEditProfile);
         addressEditText = view.findViewById(R.id.addressEditText);
         petCounter = view.findViewById(R.id.petCounter);
+        requestsButton = view.findViewById(R.id.btnViewRequests);
 
         // Initialize pet list and set up RecyclerView with adapter
         petList = new ArrayList<>();
@@ -70,8 +71,17 @@ public class ProfileFragment extends Fragment {
 
         editProfileButton.setOnClickListener(v -> editProfile());
 
-        // Get Firebase Authentication instance and fetch user data from database
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        requestsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), RequestsActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+                // Get Firebase Authentication instance and fetch user data from database
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
             userRef = FirebaseDatabase.getInstance().getReference("users").child(uid);

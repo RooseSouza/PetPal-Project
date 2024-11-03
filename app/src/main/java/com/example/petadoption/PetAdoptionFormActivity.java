@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -52,12 +53,15 @@ public class PetAdoptionFormActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         // Create an AdoptionRequest object
-        AdoptionRequest request = new AdoptionRequest(ownerId, petId, name, message);
+        AdoptionRequest request = new AdoptionRequest(petId, currentUserId, name, message); // Ensure the correct parameter order
 
-        // Save the request to Firebase
-        DatabaseReference requestsRef = FirebaseDatabase.getInstance().getReference("adoptionRequests");
+        // Get the current user's ID (you might already have this as ownerId)
+         // Replace this if you store the user ID differently
+
+        // Save the request to Firebase under the current user's ID
+        DatabaseReference requestsRef = FirebaseDatabase.getInstance().getReference("adoptionRequests").child(ownerId);
         String requestId = requestsRef.push().getKey(); // Generate a unique key for the request
         requestsRef.child(requestId).setValue(request).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -70,4 +74,5 @@ public class PetAdoptionFormActivity extends AppCompatActivity {
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         });
     }
+
 }
