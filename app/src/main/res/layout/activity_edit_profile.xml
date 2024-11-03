@@ -59,7 +59,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/avatarImageView"
+                    android:id="@+id/profileimg"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@drawable/user_icon"
@@ -88,6 +88,7 @@
                 android:id="@+id/nameEditText"
                 android:textColor="#000000"
                 android:textSize="14sp"
+                android:padding="16dp"
                 android:textColorHint="@color/hintColor"
                 android:background="@drawable/input_field_background"
                 android:layout_height="wrap_content"
@@ -107,11 +108,31 @@
                 android:id="@+id/addressEditText"
                 android:textColor="#000000"
                 android:textSize="14sp"
+                android:padding="16dp"
                 android:textColorHint="@color/hintColor"
                 android:background="@drawable/input_field_background"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:hint="Enter address..." />
+
+            <TextView
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Phone" />
+            <EditText
+                android:id="@+id/phoneEditText"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:padding="16dp"
+                android:textColorHint="@color/hintColor"
+                android:background="@drawable/input_field_background"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="Enter Phone..." />
         </LinearLayout>
 
         <!-- Save Button -->

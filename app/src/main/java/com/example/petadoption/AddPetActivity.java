@@ -1,32 +1,39 @@
 package com.example.petadoption;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.HashMap;
 
 public class AddPetActivity extends AppCompatActivity {
+
+    private static final int PICK_IMAGE_REQUEST = 1;
 
     private EditText petNameEditText, ageEditText, breedEditText, sizeEditText, descEditText, healthEditText, locationEditText, rescueLocEditText;
     private RadioButton maleRadioButton, femaleRadioButton, streetYesRadioButton, streetNoRadioButton;
     private Button uploadButton, submitButton;
     private FirebaseAuth mAuth;
     private DatabaseReference userPetsRef;
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +63,26 @@ public class AddPetActivity extends AppCompatActivity {
         uploadButton = findViewById(R.id.upload_button);
         submitButton = findViewById(R.id.submit_button);
 
-        // Upload photos (implement functionality as needed)
-        uploadButton.setOnClickListener(v -> {
-            // Code for selecting and uploading photos
-        });
+        // Open file chooser for image upload
+        uploadButton.setOnClickListener(v -> openFileChooser());
 
         // Submit pet data to Firebase
         submitButton.setOnClickListener(v -> savePetData());
+    }
+
+    private void openFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            imageUri = data.getData();
+        }
     }
 
     private void savePetData() {
@@ -83,6 +103,41 @@ public class AddPetActivity extends AppCompatActivity {
             return;
         }
 
+        // If an image is selected, convert and upload it
+        if (imageUri != null) {
+            convertAndUploadImageToFirebase(petName, age, breed, size, description, healthStatus, location, rescueLocation, gender, isStreetPet);
+        } else {
+            // Save pet data without image
+            savePetDataToFirebase(petName, age, breed, size, description, healthStatus, location, rescueLocation, gender, isStreetPet, null);
+        }
+    }
+
+    private void convertAndUploadImageToFirebase(String petName, String age, String breed, String size, String description, String healthStatus, String location, String rescueLocation, String gender, String isStreetPet) {
+        try {
+            // Open an InputStream to get the image data
+            InputStream inputStream = getContentResolver().openInputStream(imageUri);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+            // Convert bitmap to Base64
+            String base64Image = encodeToBase64(bitmap);
+
+            // Save pet data with image to Firebase
+            savePetDataToFirebase(petName, age, breed, size, description, healthStatus, location, rescueLocation, gender, isStreetPet, base64Image);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(AddPetActivity.this, "Failed to process image", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private String encodeToBase64(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(byteArray, Base64.DEFAULT);
+    }
+
+    private void savePetDataToFirebase(String petName, String age, String breed, String size, String description, String healthStatus, String location, String rescueLocation, String gender, String isStreetPet, String base64Image) {
         HashMap<String, Object> petData = new HashMap<>();
         petData.put("petName", petName);
         petData.put("age", age);
@@ -94,7 +149,9 @@ public class AddPetActivity extends AppCompatActivity {
         petData.put("location", location);
         petData.put("isStreetPet", isStreetPet);
         petData.put("rescueLocation", rescueLocation);
-        // Add photo URLs after implementing photo upload
+        if (base64Image != null) {
+            petData.put("imageBase64", base64Image); // Save Base64 image string
+        }
 
         userPetsRef.push().setValue(petData).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {

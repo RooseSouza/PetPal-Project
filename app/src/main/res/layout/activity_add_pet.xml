@@ -352,24 +352,27 @@
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:text="Upload up to 5 photos of the pet"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:layout_marginHorizontal="135dp"
-                        android:clipChildren="false"
-                        android:clipToPadding="false"
-                        android:orientation="horizontal">
+
                         <Button
                             android:id="@+id/upload_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Upload Photos"/>
-                    </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/petImageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="Pet Image" />
+
 
                         <Button
                             android:id="@+id/submit_button"
                             android:layout_gravity="center"
+                            android:textColor="@color/white"
                             android:backgroundTint="@color/buttonColor"
                             android:layout_height="wrap_content"
                             android:layout_width="match_parent"

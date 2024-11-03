@@ -4,14 +4,14 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_margin="8dp"
-    android:background="@drawable/card_background">
+    android:background="@drawable/input_field_background">
 
     <ImageView
         android:id="@+id/petPhoto"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/sample_pet_photo"/>
+        android:src="@drawable/pet1"/>
 
     <TextView
         android:id="@+id/petName"
@@ -47,6 +47,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/buttonColor"
             android:text="Approve"/>
 
         <Button
@@ -54,6 +56,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/buttonColor"
             android:text="Reject"/>
     </LinearLayout>
 </LinearLayout>

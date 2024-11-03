@@ -35,10 +35,11 @@
 
             <ImageView
                 android:id="@+id/userIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/user_icon"
-                android:background="@drawable/circle" />
+                android:background="@drawable/circle"
+                android:scaleType="centerCrop"/>
         </LinearLayout>
 
         <!-- Profile Information Section -->
@@ -49,11 +50,13 @@
             android:gravity="center_vertical">
 
             <ImageView
+                android:id="@+id/userpfp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/user_icon"
                 android:background="@drawable/circle"
-                android:layout_marginEnd="8dp" />
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -71,6 +74,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/addressEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No Address"
@@ -102,6 +106,7 @@
                     android:paddingBottom="10dp">
 
                     <TextView
+                        android:id="@+id/petCounter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
@@ -175,9 +180,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Edit Profile"
-                android:backgroundTint="#FFFFFF"
+                android:backgroundTint="#C3C3C3"
                 android:textColor="#000000"
-                android:layout_marginEnd="8dp"
                 android:elevation="2dp" />
 
             <Button
@@ -186,8 +190,20 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Add Pet"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:backgroundTint="#000000"
                 android:textColor="#FFFFFF"
+                android:elevation="2dp" />
+
+            <Button
+                android:id="@+id/btnViewRequests"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Requests"
+                android:backgroundTint="#C3C3C3"
+                android:textColor="#000000"
                 android:elevation="2dp" />
         </LinearLayout>
     </LinearLayout>

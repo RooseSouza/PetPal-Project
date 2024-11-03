@@ -4,9 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingVertical="14dp"
-    android:paddingRight="12dp"
+    android:paddingEnd="12dp"
     android:layout_marginBottom="28dp"
     android:layout_marginHorizontal="29dp"
+    android:background="@drawable/input_field_background"
     android:elevation="1dp">
 
     <LinearLayout
@@ -25,7 +26,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/Name"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 android:layout_marginBottom="6dp"
@@ -34,7 +35,7 @@
                 android:text="Name" />
 
             <TextView
-                android:id="@+id/tvLocation"
+                android:id="@+id/Location"
                 android:textColor="#838383"
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
@@ -43,29 +44,19 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/ivProfile"
+            android:id="@+id/ProfilePicture"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/pfp1"
-            android:cropToPadding="true"
-            android:scaleType="fitXY" />
+            android:cropToPadding="true" />
     </LinearLayout>
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivPetImage"
+        android:id="@+id/PetImage"
         android:layout_width="match_parent"
         android:layout_height="216dp"
         android:layout_marginBottom="13dp"
         android:layout_marginStart="13dp"
         android:src="@drawable/pet1"
         android:scaleType="fitXY" />
-
-    <TextView
-        android:id="@+id/tvTime"
-        android:textColor="#838383"
-        android:textSize="12sp"
-        android:layout_marginStart="299dp"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Time" />
 </LinearLayout>

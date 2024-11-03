@@ -25,8 +25,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText emailEditText, passwordEditText, nameEditText, phoneEditText, confirmPasswordEditText;
-    private Spinner roleSpinner;
+    private EditText emailEditText, passwordEditText, nameEditText, phoneEditText, confirmPasswordEditText, addressEditText;
     private Button registerButton;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
@@ -41,18 +40,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Get references to UI elements
         emailEditText = findViewById(R.id.emailEditText);
+        addressEditText = findViewById(R.id.addressEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
         nameEditText = findViewById(R.id.nameEditText);  // New field for Name
         phoneEditText = findViewById(R.id.phoneEditText);  // New field for Phone
-        roleSpinner = findViewById(R.id.roleSpinner);  // New field for Role
         registerButton = findViewById(R.id.registerButton);
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.role_array, R.layout.spinner_item);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        roleSpinner.setAdapter(adapter);
 
         // Set register button click listener
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -67,9 +60,9 @@ public class RegisterActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
         String confirmPassword = confirmPasswordEditText.getText().toString().trim();
+        final String address = addressEditText.getText().toString().trim();
         final String name = nameEditText.getText().toString().trim();
         final String phone = phoneEditText.getText().toString().trim();
-        final String role = roleSpinner.getSelectedItem().toString();
 
         if (TextUtils.isEmpty(name)) {
             nameEditText.setError("Name is required");
@@ -78,6 +71,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(email)) {
             emailEditText.setError("Email is required");
+            return;
+        }
+
+        if (TextUtils.isEmpty(address)) {
+            emailEditText.setError("Address is required");
             return;
         }
 
@@ -110,7 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                             userData.put("name", name);
                             userData.put("email", email);
                             userData.put("phone", phone);
-                            userData.put("role", role);
+                            userData.put("address", address);
                             userData.put("adopted_pets", new HashMap<String, Boolean>()); // Initially empty
                             userData.put("favourites", new HashMap<String, Boolean>()); // Initially empty
 
